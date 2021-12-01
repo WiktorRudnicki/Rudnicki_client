@@ -5,7 +5,7 @@
                 <v-img />
                 <h2>{{title}}</h2>
                 <v-datatable>
-
+                    <th></th>
                 </v-datatable>
                 <v-btn></v-btn>
             </div>
