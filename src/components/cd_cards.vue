@@ -2,12 +2,12 @@
   <v-app>
     <v-row class="d-flex flex-wrap justify-center">
       <v-card
-        v-for='(alb, id) in this.album'
+        v-for="(alb, id) in this.album"
         :key="id"
         style="width: 300px"
         class="ma-3 d-flex flex-column padding: 10px"
       >
-        <v-img :src="alb.image"></v-img>
+        <v-img :src="'http://localhost:3000/images/'+alb.pic"></v-img>
         <h1>
           {{ alb.titel }}
         </h1>
@@ -16,8 +16,8 @@
         <br />
         <span> Typ: {{ alb.typ }} </span>
         <span> Preis: {{ alb.preis }} Euro </span>
-        <span> Rating: {{ alb.rating }} </span><v-img src="../assets/star.png" width="30px">
-        </v-img>
+        <span> Rating: {{ alb.rating }} </span>
+        <v-img src="../assets/star.png" width="30px" height="30px"> </v-img>
         <br />
         <span>Anzahl: {{ alb.stueckzahl }}</span>
         <br />
