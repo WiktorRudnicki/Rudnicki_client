@@ -1,17 +1,15 @@
 <template>
-    <v-app>
         <v-app-bar>
-            <v-img source="images/" />
+            <img src="/vin.jpg" class="mx-2" style="height: 150px; margin-top: 0px"/>
             <v-spacer></v-spacer>
-            <v-button :to="Home" >Home</v-button>
+            <v-btn :to="Home" >Home</v-btn>
         </v-app-bar>
-    </v-app>
 </template>
 
 <script>
-    export default {
-        
-    }
+export default {
+
+};
 </script>
 
 <style lang="scss" scoped>
