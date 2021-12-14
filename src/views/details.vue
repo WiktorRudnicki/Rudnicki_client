@@ -1,24 +1,41 @@
 <template>
-    <v-app>
-        <v-main>
-            <div>
-                <v-img />
-                <h2>{{title}}</h2>
-                <v-datatable>
-                    <th></th>
-                </v-datatable>
-                <v-btn></v-btn>
-            </div>
-        </v-main>
-    </v-app>
+  <v-app>
+    <v-main>
+      <div>
+        <v-img />
+        <h2>{{ title }}</h2>
+        <v-btn @click="buyalb()">Purchase </v-btn>
+      </div>
+    </v-main>
+  </v-app>
 </template>
 
 <script>
-export default {
+import axios from 'axios';
 
+export default {
+  data: () => ({
+    album: [],
+    songs: [],
+  }),
+  async created() {
+    const response = await axios.get('http://localhost:3000/shop/');
+    this.album = response.data;
+    const res = await axios.get("'http://localhost:3000/shop/songs/' + this.album.id");
+    this.songs = res.data;
+  },
+  methods: {
+    async purchase() {
+      if (this.album.stueckzahl > 0) {
+        await axios.get("'http://localhost:3000/shop/' + this.album.id");
+        window.location.reload();
+      } else {
+        await axios.delete("'http://localhost:3000/shop/' + this.album.id");
+      }
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-
 </style>
