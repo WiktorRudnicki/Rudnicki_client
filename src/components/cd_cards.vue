@@ -29,7 +29,7 @@
         <br />
         <span>Anzahl: {{ alb.stueckzahl }}</span>
         <br />
-        <v-btn :to="'/details/' + album.id" style="width: 100px">
+        <v-btn :to="'/Details/' + alb.id" style="width: 100px">
           Details
         </v-btn>
       </v-card>
@@ -47,8 +47,6 @@ export default {
   async created() {
     const response = await axios.get('http://localhost:3000/shop');
     this.album = response.data;
-    console.log(this.album);
-    console.log(this.response);
   },
 };
 </script>
