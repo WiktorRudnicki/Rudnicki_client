@@ -31,6 +31,7 @@ export default {
         window.location.reload();
       } else {
         await axios.delete("'http://localhost:3000/shop/' + this.album.id");
+        this.$router.push({ name: 'Home', url: 'http://localhost:8080' });
       }
     },
   },
